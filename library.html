@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact page</title>
+
+<style>
+body{
+  padding: 0;
+  margin: 0;
+    }
+
+    ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 9px 0px;
+  background-color: #87cefa;
+}
+
+li {
+  text-align: center;
+  display: inline;
+}
+
+li a {
+  color: #000000;
+  padding: 9px 17px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #FFFFFF;
+  color: #0000FF;
+}
+
+#myList {
+  list-style-type: none;
+  margin: 0px;
+  padding: 9px 0px;
+background-color: whitesmoke;
+}
+
+#myList2 {
+  list-style-type: none;
+  margin: 0px;
+  padding: 9px 0px;
+background-color: whitesmoke;
+}
+
+#myList3 {
+  list-style-type: none;
+  margin: 0px;
+  padding: 9px 0px;
+background-color: whitesmoke;
+}
+
+.container{
+  background-color: #efdecd;
+          }
+
+.header-container{
+    display: flex;
+    height: 200px;
+        }
+
+.navigation-container{
+    display: flex;
+    height: 70px;
+    margin-top: 10px;
+        }
+
+        .images-container{
+
+            display: flex;
+
+            height: 200px;
+
+            margin-top: 10px;
+
+        }
+
+        .main-contents-container{
+
+            display: flex;
+
+            height: 400px;
+
+            margin-top: 10px;
+
+        }
+
+        .footer-container{
+
+            display: flex;
+
+            height: 100px;
+
+            margin-top: 10px;
+
+            width: 100%;
+
+        }
+
+        .logo-container{
+
+            width: 20%;
+
+        }
+
+        .title-container{
+
+            width: 60%;
+
+            background-color:whitesmoke;
+
+        }
+
+        .about-container{
+
+            width: 20%;
+
+            background-color: #bc8f8f;
+
+        }
+
+        .image{
+
+            width: 300px;
+
+            height: 200px;
+
+            max-width: fit-content;
+
+        }
+
+        .center-content{
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+        }
+
+        .main-navigation-container{
+
+            background-color: gold;
+
+            width: 100%;
+
+        }
+
+        .image-container{
+
+            width: 25%;
+
+        }
+
+        .main-content-container{
+
+            width: 33%;
+
+            background-color: whitesmoke;
+
+            margin: 10px;
+
+        }
+
+        .content{
+
+            width: 350px;
+
+            height: 400px;
+
+        }
+
+        .footer{
+
+            background-color: #bc8f8f;
+
+            color: white;
+
+            width: 100%;
+
+            height: 100%;
+
+        }
+
+        p{
+
+            font-size: 18px;
+
+        }
+
+    </style>
+
+    <script>
+    const filterInput = document.getElementById('filterInput');
+    const itemList = document.getElementById('myList');
+
+    filterInput.addEventListener('input', function() {
+    const filterKeyword = filterInput.value.toLowerCase();
+    const filteredItems = Array.from(itemList.children)
+    .filter(item => item.innerText.toLowerCase().includes(filterKeyword));
+
+    // Save filtered items to localStorage
+    localStorage.setItem('filteredItems', JSON.stringify(filteredItems.map(item => item.innerText)));
+    });
+
+    // Retrieve filtered items from localStorage on page load
+    document.addEventListener('DOMContentLoaded', function() {
+    const savedItems = JSON.parse(localStorage.getItem('filteredItems'));
+    if (savedItems) {
+    savedItems.forEach(itemText => {
+    const filteredItem = document.createElement('li');
+    filteredItem.innerText = itemText;
+    itemList.appendChild(filteredItem);
+    });
+    }
+    });
+    </script>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header-container">
+
+            <div class="logo-container">
+
+                <img src="images/book3.jpg" alt="Book 1 image" class="image"/>
+
+            </div>
+
+            <div class="title-container center-content">
+
+                <h2>The Book Nook</h2>
+
+            </div>
+
+            <div class="about-container center-content">
+
+                <h3>Library</h3>
+
+            </div>
+
+        </div>
+
+        <div>
+    <ul>
+      <li><a href="index.html" target="_self">Home</a></li>
+      <li><a href="library.html" target="_self">Library</a></li>
+      <li><a href="contact.html" target="_self">Contact</a></li>
+    </ul>
+    <br />
+    </div>
+
+        <div class="images-container">
+
+            <div class="image-container center-content">
+
+                <img src="images/book7.jpg" alt="Book 7 image" class="image"/>
+
+            </div>
+
+            <div class="image-container center-content">
+
+                <img src="images/book8.jpg" alt="Book 8 image" class="image"/>
+
+            </div>
+
+            <div class="image-container center-content">
+
+                <img src="images/book9.jpg" alt="Book 9 image" class="image" />
+
+            </div>
+
+            <div class="image-container center-content">
+
+                <img src="images/book10.jpg" alt="Book 10 image" class="image"/>
+
+            </div>
+
+        </div>
+
+        <div class="main-contents-container">
+
+            <div class="main-content-container center-content">
+
+                <div class="content">
+
+                    <h2>Romance Novels</h2>
+
+                    <input type="text" id="filterInput" placeholder="Filter items...">
+<ul id="myList">
+<li>Pride and Prejudice</li><br>
+<li>Gone With the Wind</li><br>
+<li>Paradise</li><br>
+<li>Addicted</li><br>
+<li>Always Been Mine</li><br>
+<li>The Bride</li><br>
+<li>Outlander</li><br>
+<li>Backstage Pass</li><br>
+<li>Collide</li>
+</ul>
+</div>
+
+                </div>
+
+            </div>
+
+            <div class="main-content-container center-content">
+
+                <div class="content">
+
+                    <h2>Fantasy Novels</h2>
+
+                    <input type="text" id="filterInput2" placeholder="Filter items...">
+<ul id="myList2">
+<li>Alice in Wonderland</li><br>
+<li>Lord of the Rings</li><br>
+<li>A Wrinkle in Time</li><br>
+<li>The Night Circus</li><br>
+<li>Watership Down</li><br>
+<li>The BFG</li><br>
+<li>Howl's Moving Castle</li><br>
+<li>Redwall</li><br>
+<li>City of Glass</li>
+</ul>
+
+                </div>
+
+            </div>
+
+            <div class="main-content-container center-content">
+
+                <div class="content">
+
+                    <h2>Horror Novels</h2>
+
+                    <input type="text" id="filterInput3" placeholder="Filter items...">
+    <ul id="myList3">
+    <li>Dracula</li><br>
+    <li>The Shining</li><br>
+    <li>Red Dragon</li><br>
+    <li>Heart of Darkness</li><br>
+    <li>The Trial</li><br>
+    <li>Swan Song</li><br>
+    <li>Frankenstein</li><br>
+    <li>The Exorcist</li><br>
+    <li>Salem's Lost</li>
+    </ul>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer-container">
+
+            <div class="footer center-content">
+
+                <div>
+
+                    <p>The Book Nook &copy; 2024</p>
+                    <div class="contact-links">
+                    		    <a
+                    		      href="https://facebook.com/heidihale"
+                    		      target="_blank"
+                    		      class="btn contact-details"
+                    		      ><i class="facebook"></i> Facebook</a
+                    		    >
+                    		    <a
+                    		      id="profile-link"
+                    		      href="https://github.com/heidihale"
+                    		      target="_blank"
+                    		      class="btn contact-details"
+                    		      ><i class="fab fa-github"></i> GitHub</a
+                    		    >
+                    		    <a
+                    		      href="https://twitter.com/heidihale"
+                    		      target="_blank"
+                    		      class="btn contact-details"
+                    		      ><i class="twitter"></i> Twitter</a
+                    		    >
+                    		    <a href="mailto:heidihale@gmail.com" class="btn contact-details"
+                    		      ><i class="email"></i> Email</a
+                    		    >
+
+                    		  </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+    document.getElementById('filterInput').addEventListener('input', function() {
+    let filterValue = document.getElementById('filterInput').value.toUpperCase();
+    let list = document.getElementById('myList');
+    let items = list.getElementsByTagName('li');
+
+    for (let i = 0; i < items.length; i++) {
+    let item = items[i];
+    let textValue = item.textContent || item.innerText;
+
+    if (textValue.toUpperCase().indexOf(filterValue) > -1) {
+    item.style.display = "";
+    } else {
+    item.style.display = "none";
+    }
+    }
+    });
+    </script>
+
+    <script>
+    document.getElementById('filterInput2').addEventListener('input', function() {
+    let filterValue = document.getElementById('filterInput2').value.toUpperCase();
+    let list = document.getElementById('myList2');
+    let items = list.getElementsByTagName('li');
+
+    for (let i = 0; i < items.length; i++) {
+    let item = items[i];
+    let textValue = item.textContent || item.innerText;
+
+    if (textValue.toUpperCase().indexOf(filterValue) > -1) {
+    item.style.display = "";
+    } else {
+    item.style.display = "none";
+    }
+    }
+    });
+    </script>
+
+    <script>
+    document.getElementById('filterInput3').addEventListener('input', function() {
+    let filterValue = document.getElementById('filterInput3').value.toUpperCase();
+    let list = document.getElementById('myList3');
+    let items = list.getElementsByTagName('li');
+
+    for (let i = 0; i < items.length; i++) {
+    let item = items[i];
+    let textValue = item.textContent || item.innerText;
+
+    if (textValue.toUpperCase().indexOf(filterValue) > -1) {
+    item.style.display = "";
+    } else {
+    item.style.display = "none";
+    }
+    }
+    });
+    </script>
+</body>
+
+</html>
